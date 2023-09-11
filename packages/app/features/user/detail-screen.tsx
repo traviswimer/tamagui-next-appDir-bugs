@@ -1,13 +1,12 @@
 import { Button, Paragraph, YStack } from '@my/ui'
 import { ChevronLeft } from '@tamagui/lucide-icons'
 import React from 'react'
-import { createParam } from 'solito'
-import { useLink } from 'solito/link'
 
-const { useParam } = createParam<{ id: string }>()
+import { useLink, useParams } from 'solito/navigation'
+type Params = { id: string }
 
 export function UserDetailScreen() {
-  const [id] = useParam('id')
+  const { id } = useParams<Params>()
   const link = useLink({
     href: '/',
   })
